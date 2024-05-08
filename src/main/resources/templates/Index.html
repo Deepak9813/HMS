@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org" th:replace="Base::Layout(~{::title}, ~{::section})">
+<!-- <html lang="en" xmlns:th="https://www.thymeleaf.org" th:replace="~{ Base::Layout(~{::title}, ~{::section}) }"> -->
+
+<head>
+	<meta charset="ISO-8859-1">
+	<title>index</title>
+</head>
+
+<body>
+
+	<section>
+
+		<!-- ============= Carousel Start ============= -->
+
+		<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+			<div class="carousel-indicators">
+				<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+					aria-current="true" aria-label="Slide 1"></button>
+				<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+					aria-label="Slide 2"></button>
+				<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+					aria-label="Slide 3"></button>
+				<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3"
+					aria-label="Slide 4"></button>
+			</div>
+			<div class="carousel-inner">
+				<div class="carousel-item active">
+					<img src="images/hospital1.jpg" class="d-block w-100" alt="..." height="500px">
+				</div>
+				<div class="carousel-item">
+					<img src="images/hospital2.jpg" class="d-block w-100" alt="..." height="500px">
+				</div>
+				<div class="carousel-item">
+					<img src="images/hospital3.jpg" class="d-block w-100" alt="..." height="500px">
+				</div>
+				<div class="carousel-item">
+					<img src="images/hospital4.png" class="d-block w-100" alt="..." height="500px">
+				</div>
+			</div>
+			<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+				data-bs-slide="prev">
+				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				<span class="visually-hidden">Previous</span>
+			</button>
+			<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+				data-bs-slide="next">
+				<span class="carousel-control-next-icon" aria-hidden="true"></span>
+				<span class="visually-hidden">Next</span>
+			</button>
+		</div>
+
+		<!-- ============= Carousel End ============= -->
+
+		<!-- ============= key Features Start ======= -->
+
+		<div class="container p-3">
+
+			<!--<h3 class="text-center ">Key Features of our Hospital</h3>-->
+			<p class="text-center fs-2">Key Features of our Hospital</p>
+
+			<div class="row">
+
+				<!-- ===== Left Side [8 Column] ==== -->
+				<div class="col-md-8 p-3">
+
+					<div class="row">
+
+						<div class="col-md-6 mb-2">
+							<div class="card shadow mb-1 bg-body rounded">
+								<!-- ======== card-body ======== -->
+								<div class="card-body">
+									<p class="fs-5">Pristine Environment</p>
+									<p>Our hospital diligently upholds strict sanitation protocols, ensuring a clean and
+										safe environment for all individuals.</p>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-md-6 mb-2">
+							<div class="card shadow mb-1 bg-body rounded">
+								<!-- ======== card-body ======== -->
+								<div class="card-body">
+									<p class="fs-5"> Empathetic Physicians</p>
+									<p>Our doctors offer compassionate care, prioritizing patient well-being throughout
+										their healthcare journey.</p>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-md-6 mb-2">
+							<div class="card shadow mb-1 bg-body rounded">
+								<!-- ======== card-body ======== -->
+								<div class="card-body">
+									<p class="fs-5">Patient-Centered Services</p>
+									<p>We prioritize patients' needs, preferences, and values in all aspects of care
+										delivery, striving to enhance their overall healthcare experience.</p>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-md-6 mb-2">
+							<div class="card shadow mb-1 bg-body rounded">
+								<!-- ======== card-body ======== -->
+								<div class="card-body">
+									<p class="fs-5">Cutting-Edge Technology</p>
+									<p>Our hospital invests in cutting-edge technology to provide innovative treatment
+										options and ensure superior patient outcomes.</p>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-md-6">
+							<div class="card shadow mb-1 bg-body rounded">
+								<!-- ======== card-body ======== -->
+								<div class="card-body">
+									<p class="fs-5">Continuous Quality Improvement</p>
+									<p>We continuously evaluate and refine our processes to ensure excellence in patient
+										care, safety, and satisfaction.</p>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-md-6">
+							<div class="card shadow mb-1 bg-body rounded">
+								<!-- ======== card-body ======== -->
+								<div class="card-body">
+									<p class="fs-5">Safety Assurance</p>
+									<p>Safety is our top priority, and we uphold the highest standards to ensure the
+										well-being of everyone within our hospital.</p>
+								</div>
+							</div>
+						</div>
+
+
+					</div>
+				</div>
+
+				<!-- ===== Right Side [4 Column] ==== -->
+				<div class="col-md-4 py-4">
+					<img src="images/doctor.jpg" alt="Error Image" class="img-fluid">
+				</div>
+
+			</div>
+		</div>
+		<!-- ============= key Features End ======= -->
+
+		<!-- ============ Our Teams Start ============ -->
+		<hr>
+
+		<div class="container">
+
+			<!--<h3 class="text-center ">Our Team</h3>-->
+			<p class="text-center fs-2 ">Our Team</p>
+
+			<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+
+				<div class="carousel-inner">
+					<div class="carousel-item active">
+						<div class="row">
+
+							<div class="col-md-3 mb-2">
+								<div class="card shadow mb-1 bg-body rounded">
+									<!-- ======== card-body ======== -->
+									<div class="card-body text-center">
+										<img src="images/doctorA.jpg" width="200px" height="250px">
+										<!--<p class="fw-bold fs-5">Deepak Baij</p>-->
+										<h5 class="card-title pt-1">Deepak Baij</h5>
+										<p style="font-weight: 600;">Medical Director(CEO)</p>
+									</div>
+								</div>
+							</div>
+
+							<div class="col-md-3 mb-2">
+								<div class="card shadow mb-1 bg-body rounded">
+									<!-- ======== card-body ======== -->
+									<div class="card-body text-center">
+										<img src="images/doctorB.jpg" width="200px" height="250px">
+										<!--<p class="fw-bold fs-5">Deepak Baij</p>-->
+										<h5 class="card-title pt-1">Samjhana Khadka</h5>
+										<p style="font-weight: 600;">Chief Medical Officer (CMO)</p>
+									</div>
+								</div>
+							</div>
+
+							<div class="col-md-3 mb-2">
+								<div class="card shadow mb-1 bg-body rounded">
+									<!-- ======== card-body ======== -->
+									<div class="card-body text-center">
+										<img src="images/doctorC.jpg" width="200px" height="250px">
+										<!--<p class="fw-bold fs-5">Deepak Baij</p>-->
+										<h5 class="card-title pt-1">Sachin Bhandari</h5>
+										<p style="font-weight: 600;">Director of Medical Services</p>
+									</div>
+								</div>
+							</div>
+
+							<div class="col-md-3 mb-2">
+								<div class="card shadow mb-1 bg-body rounded">
+									<!-- ======== card-body ======== -->
+									<div class="card-body text-center">
+										<img src="images/doctorD.jpg" width="200px" height="250px">
+										<!--<p class="fw-bold fs-5">Deepak Baij</p>-->
+										<h5 class="card-title pt-1">Sweekshya Poudel</h5>
+										<p style="font-weight: 600;">Department Chair</p>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+					<div class="carousel-item">
+						<div class="row">
+
+							<div class="col-md-3 mb-2">
+								<div class="card shadow mb-1 bg-body rounded">
+									<!-- ======== card-body ======== -->
+									<div class="card-body text-center">
+										<img src="images/doctorE.jpg" width="200px" height="250px">
+										<!--<p class="fw-bold fs-5">Deepak Baij</p>-->
+										<h5 class="card-title pt-1">Rahul Pandey</h5>
+										<p style="font-weight: 600;">Attending Physician</p>
+									</div>
+								</div>
+							</div>
+
+							<div class="col-md-3 mb-2">
+								<div class="card shadow mb-1 bg-body rounded">
+									<!-- ======== card-body ======== -->
+									<div class="card-body text-center">
+										<img src="images/doctorF.jpg" width="200px" height="250px">
+										<!--<p class="fw-bold fs-5">Deepak Baij</p>-->
+										<h5 class="card-title pt-1">Bipeen Joshi</h5>
+										<p style="font-weight: 600;">Surgeon</p>
+									</div>
+								</div>
+							</div>
+
+							<div class="col-md-3 mb-2">
+								<div class="card shadow mb-1 bg-body rounded">
+									<!-- ======== card-body ======== -->
+									<div class="card-body text-center">
+										<img src="images/doctorG.jpg" width="200px" height="250px">
+										<!--<p class="fw-bold fs-5">Deepak Baij</p>-->
+										<h5 class="card-title pt-1">Bhawani Bist</h5>
+										<p style="font-weight: 600;">Anesthesiologist</p>
+									</div>
+								</div>
+							</div>
+
+							<div class="col-md-3 mb-2">
+								<div class="card shadow mb-1 bg-body rounded">
+									<!-- ======== card-body ======== -->
+									<div class="card-body text-center">
+										<img src="images/doctorH.jpg" width="200px" height="250px">
+										<!--<p class="fw-bold fs-5">Deepak Baij</p>-->
+										<h5 class="card-title pt-1">Ravi Shah</h5>
+										<p style="font-weight: 600;">Emergency Physician</p>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+					<div class="carousel-item">
+						<div class="row">
+
+							<div class="col-md-3 mb-2">
+								<div class="card shadow mb-1 bg-body rounded">
+									<!-- ======== card-body ======== -->
+									<div class="card-body text-center">
+										<img src="images/nurseA.jpg" width="200px" height="250px">
+										<!--<p class="fw-bold fs-5">Lily Jenkins</p>-->
+										<h5 class="card-title pt-1">Lily Jenkins</h5>
+										<p style="font-weight: 600;">Chief Nursing Officer (CNO)</p>
+									</div>
+								</div>
+							</div>
+
+							<div class="col-md-3 mb-2">
+								<div class="card shadow mb-1 bg-body rounded">
+									<!-- ======== card-body ======== -->
+									<div class="card-body text-center">
+										<img src="images/nurseB.jpg" width="200px" height="250px">
+										<!--<p class="fw-bold fs-5">Sophia Martinez</p>-->
+										<h5 class="card-title pt-1">Sophia Martinez</h5>
+										<p style="font-weight: 600;">Director of Nursing</p>
+									</div>
+								</div>
+							</div>
+
+							<div class="col-md-3 mb-2">
+								<div class="card shadow mb-1 bg-body rounded">
+									<!-- ======== card-body ======== -->
+									<div class="card-body text-center">
+										<img src="images/nurseC.jpg" width="200px" height="250px">
+										<!--<p class="fw-bold fs-5">Amelia Garcia</p>-->
+										<h5 class="card-title pt-1">Amelia Garcia</h5>
+										<p style="font-weight: 600;">Clinical Nurse Specialist (CNS)</p>
+									</div>
+								</div>
+							</div>
+
+							<div class="col-md-3 mb-2">
+								<div class="card shadow mb-1 bg-body rounded">
+									<!-- ======== card-body ======== -->
+									<div class="card-body text-center">
+										<img src="images/nurseD.jpg" width="200px" height="250px">
+										<!--<p class="fw-bold fs-5">Sophia Davies</p>-->
+										<h5 class="card-title pt-1">Sophia Davies</h5>
+										<p style="font-weight: 600;">Licensed Practical Nurse (LPN)</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+
+
+
+		</div>
+
+		<!-- ============ Our Teams End ============  -->
+
+		<!-- =========== Footer Start ==============  -->
+		<div class="container-fluid text-center text-white" style="background-color: #2E86C1;">
+			<!--<p class="py-2">© 2024 Hospital Management System. All rights reserved.</p>-->
+			<p class="py-2">© 2024 Designed by <span style="font-weight: 600;">Deepak Baij</span>. All rights reserved.
+			</p>
+		</div>
+		<!-- =========== Footer Start ==============  -->
+
+	</section>
+
+</body>
+
+</html>

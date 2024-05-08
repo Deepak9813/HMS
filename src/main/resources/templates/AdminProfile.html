@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org" th:replace="Base::Layout(~{::title}, ~{::section})">
+<!-- <html lang="en" xmlns:th="https://www.thymeleaf.org" th:replace="~{ Base::Layout(~{::title}, ~{::section}) }"> -->
+
+<head>
+	<meta charset="ISO-8859-1">
+	<title>adminProfile</title>
+</head>
+
+<body>
+
+	<section>
+
+		<div class="container p-5">
+			<div class="row justify-content-center">
+				<div class="col-md-6">
+					<div class="card animated-card shadow p-3 mb-5 bg-body rounded">
+
+						<!-- ======= card-body ========= -->
+						<div class="card-body">
+
+							<p class="text-center fs-3">Admin Profile</p>
+
+							<th:block th:if="${session.msg}">
+								<p class="text-center text-success fs-5">[[${session.msg}]]</p>
+
+								<!-- ======= But yo mathi ko message(text) lai remove garna yesto garne ========== -->
+								<th:block th:text="${@userServiceImpl.removeSessionMessage()}"></th:block>
+
+							</th:block>
+
+
+							<div class="row mb-1">
+								<div class="col-md-6">
+									<p style="font-weight: 600;">Admin Id</p>
+									<p>[[${a.id}]]</p>
+
+								</div>
+								<div class="col-md-6">
+									<p style="font-weight: 600;">Name</p>
+									<p>[[${a.fullName}]]</p>
+								</div>
+							</div>
+
+							<div class="row mb-1">
+								<div class="col-md-6">
+									<p style="font-weight: 600;">Gender</p>
+									<p>[[${a.gender}]]</p>
+								</div>
+								<div class="col-md-6">
+									<p style="font-weight: 600;">Date of Birth</p>
+									<p>[[${a.dob}]]</p>
+								</div>
+							</div>
+
+							<div class="row mb-1">
+								<div class="col-md-6">
+									<p style="font-weight: 600;">Mobile Number</p>
+									<p>[[${a.mobileNumber}]]</p>
+								</div>
+								<div class="col-6">
+									<p style="font-weight: 600;">Email</p>
+									<p>[[${a.user.email}]]</p>
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-md-6">
+									<p></p>
+									<a th:href="@{/admin/editProfile(id=${a.id})}">
+										<i
+											class="fa-regular fa-pen-to-square fa-2x me-2 text-secondary align-middle"></i>
+										<input type="submit" value="Edit" class="btn btn-primary">
+									</a>
+								</div>
+							</div>
+
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</section>
+
+</body>
+
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="https://www.thymeleaf.org" th:replace="Base::Layout(~{::title}, ~{::body})">
+<!-- <html lang="en" xmlns:th="https://www.thymeleaf.org" th:replace="~{ Base::Layout(~{::title}, ~{::body}) }"> -->
+
+
+<head>
+	<meta charset="ISO-8859-1">
+	<title>viewAppointment</title>
+</head>
+
+<body>
+
+	<section>
+
+		<div class="container-fluid p-3">
+			<div class="row mt-3">
+
+				<div class="col-md-12">
+					<div class="card  shadow p-2 mb-0 bg-body rounded">
+
+						<!-- ======= card-body ========= -->
+						<div class="card-body">
+
+							<p class="text-center fs-4 text-success" style="font-weight: 600;">View Appointment</p>
+
+							<th:block th:if="${session.msg}">
+								<p class="text-center text-success fs-5">[[${session.msg}]]</p>
+
+								<!-- ======= But yo mathi ko message(text) lai remove garna yesto garne ========== -->
+								<th:block th:text="${@userServiceImpl.removeSessionMessage()}"></th:block>
+
+							</th:block>
+
+
+							<div class="table-responsive">
+								<table class="table" id="viewAppointmentTable">
+
+									<thead>
+										<tr>
+											<th>S.N</th>
+											<th>Full Name</th>
+											<th>Age</th>
+											<th>Gender</th>
+											<th class="text-start">Appoint Date</th>
+											<th>Diseases</th>
+											<th>Doctor Name</th>
+											<th>Specialist</th>
+											<th>Status</th>
+										</tr>
+									</thead>
+
+									<tbody>
+										<tr th:each="a,c:${aList}">
+											<td class="text-center">[[${c.count}]]</td>
+											<td>[[${a.fullName}]]</td>
+											<td>[[${a.age}]] year</td>
+											<td>[[${a.gender}]]</td>
+											<td class="text-start">[[${a.appointmentDate}]]</td>
+											<td>[[${a.diseases}]]</td>
+											<td>[[${a.doctor.fullName}]]</td>
+											<td>[[${a.doctor.specialist.specialistName}]]</td>
+											<!--<td>[[${a.status}]]</td>-->
+											<td>
+
+												<th:block th:if="${a.status == 'Pending'}">
+													<button class="btn btn-sm btn-warning text-white rounded-pill" style="font-size: 13px;"> <i class="fas fa-clock"></i>
+														[[${a.status}]]</button>
+												</th:block>
+												<th:block th:unless="${a.status == 'Pending'}">
+													<button class="btn btn-sm btn-success text-white rounded-pill" style="font-size: 13px;"> <i class="fas fa-check-circle"></i>
+														[[${a.status}]]</button>
+												</th:block>
+												
+												<!-- 
+												<th:block th:if="${a.status == 'Pending'}">
+													<button class="btn btn-sm btn-warning text-white rounded-pill" style="font-size: 13px;"> <i class="fas fa-clock"></i>
+														[[${a.status}]]</button>
+												</th:block>
+												<th:block th:if="${a.status != 'Pending'}">
+													<button class="btn btn-sm btn-success text-white rounded-pill" style="font-size: 13px;"> <i class="fas fa-check-circle"></i>
+														[[${a.status}]]</button>
+												</th:block>
+												 -->
+
+											</td>
+										</tr>
+									</tbody>
+
+								</table>
+							</div>
+
+
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- =========== Footer Start ==============  -->
+		<div class="container-fluid text-center text-white myBgColor">
+			<!--<p class="py-2">© 2024 Hospital Management System. All rights reserved.</p>-->
+			<p class="py-2">© 2024 Designed by <span style="font-weight: 600;">Deepak Baij</span>. All rights reserved.
+			</p>
+		</div>
+		<!-- =========== Footer Start ==============  -->
+
+	</section>
+
+	<!-- =========== Script Start[For DataTable] =========== -->
+	<script>
+		$(document).ready(function () {
+			$('#viewAppointmentTable').DataTable();
+		});
+	</script>
+	<!-- =========== Script End[For DataTable] ============= -->
+
+
+</body>
+
+</html>

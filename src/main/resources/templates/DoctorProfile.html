@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org" th:replace="Base::Layout(~{::title}, ~{::section})">
+<!-- <html lang="en" xmlns:th="https://www.thymeleaf.org" th:replace="~{ Base::Layout(~{::title}, ~{::section}) }"> -->
+
+<head>
+	<meta charset="ISO-8859-1">
+	<title>doctorProfile</title>
+</head>
+
+<body>
+
+	<section>
+
+		<div class="container p-5">
+			<div class="row justify-content-center">
+				<div class="col-md-6">
+					<div class="card animated-card shadow p-3 mb-5 bg-body rounded">
+
+						<!-- ======= card-body ========= -->
+						<div class="card-body">
+							<p class="text-center fs-3">Doctor Profile</p>
+
+							<div class="row mb-1">
+								<div class="col-md-6">
+									<p style="font-weight: 600;">Doctor Id</p>
+									<p>[[${doc.id}]]</p>
+								</div>
+								<div class="col-md-6">
+
+									<p style="font-weight: 600;">Name</p>
+									<p>[[${doc.fullName}]]</p>
+								</div>
+							</div>
+							<div class="row mb-1">
+								<div class="col-md-6">
+									<p style="font-weight: 600;">Gender</p>
+									<p>[[${doc.gender}]]</p>
+								</div>
+								<div class="col-md-6">
+									<p style="font-weight: 600;">Date of Birth</p>
+									<p>[[${doc.dob}]]</p>
+								</div>
+							</div>
+							<div class="row mb-1">
+								<div class="col-md-6">
+									<p style="font-weight: 600;">Qualification</p>
+									<p>[[${doc.qualification}]]</p>
+								</div>
+								<div class="col-6">
+									<p style="font-weight: 600;">Specialist</p>
+									<p>[[${spec.specialistName}]]</p>
+								</div>
+							</div>
+							<div class="row mb-1">
+								<div class="col-md-6">
+									<p style="font-weight: 600;">Experience(year)</p>
+									<p>[[${doc.experienceYear}]]</p>
+								</div>
+								<div class="col-md-6">
+									<p style="font-weight: 600;">Mobile Number</p>
+									<p>[[${doc.mobileNumber}]]</p>
+								</div>
+							</div>
+							<div class="row  mb-1">
+								<div class="col-md-6">
+									<p style="font-weight: 600;">Email</p>
+									<p>[[${doc.user.email}]]</p>
+								</div>
+								<div class="col-md-6">
+									<p></p>
+									<a th:href="@{/doctor/editProfile(id=${doc.id})}">
+										<i
+											class="fa-regular fa-pen-to-square fa-2x me-2 text-secondary align-middle"></i>
+										<input type="submit" value="Edit" class="btn btn-primary">
+									</a>
+								</div>
+							</div>
+
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</section>
+
+</body>
+
+</html>

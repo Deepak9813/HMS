@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="https://www.thymeleaf.org" th:replace="Base::Layout(~{::title}, ~{::body})">
+<!-- <html lang="en" xmlns:th="https://www.thymeleaf.org" th:replace="~{ Base::Layout(~{::title}, ~{::body}) }"> -->
+
+
+<head>
+	<meta charset="ISO-8859-1">
+	<title>admin-allPatient</title>
+</head>
+
+<body>
+
+	<section>
+
+		<div class="container-fluid p-3">
+			<div class="row mt-3">
+
+				<div class="col-md-12">
+					<div class="card  shadow p-2 mb-0 bg-body rounded">
+
+						<!-- ======= card-body ========= -->
+						<div class="card-body">
+
+							<p class="text-center fs-4 text-success fst-italic" style="font-weight: 600;">View All Patient Details</p>
+							
+
+
+							<th:block th:if="${session.msg}">
+								<p class="text-center text-success fs-5">[[${session.msg}]]</p>
+
+								<!-- ======= But yo mathi ko message(text) lai remove garna yesto garne ========== -->
+								<th:block th:text="${@userServiceImpl.removeSessionMessage()}"></th:block>
+
+							</th:block>
+
+
+							<div class="table-responsive">
+								<table class="table" id="viewAppointmentTable">
+
+									<thead>
+										<tr>
+											<th>S.N</th>
+											<th>Full Name</th>
+											<th>Age</th>
+											<th>Gender</th>
+											<!--<th>Email</th>-->
+											<!--<th>Phone No</th>-->
+											<!--<th>Address</th>-->
+											<th class="text-start">Appoint Date</th>
+											<th>Diseases</th>
+											<th>Doctor Name</th>
+											<th>Specialist</th>
+											<th>Status</th>
+										</tr>
+									</thead>
+
+									<tbody>
+
+										<tr th:each="a,c:${aList}">
+											<td class="text-center">[[${c.count}]]</td>
+											<td>[[${a.fullName}]]</td>
+											<td>[[${a.age}]] year</td>
+											<td>[[${a.gender}]]</td>
+											<!--<td>[[${a.email}]]</td>-->
+											<!--<td>[[${a.mobileNumber}]]</td>-->
+											<!--<td>[[${a.address}]]</td>-->
+											<td class="text-start">[[${a.appointmentDate}]]</td>
+											<td>[[${a.diseases}]]</td>
+											<td>[[${a.doctor.fullName}]]</td>
+											<td>[[${a.doctor.specialist.specialistName}]]</td>
+											<td>
+
+												<th:block th:if="${a.status == 'Pending'}">
+													<button class="btn btn-sm btn-warning text-white rounded-pill"
+														style="font-size: 13px;"> <i class="fas fa-clock"></i>
+														[[${a.status}]]</button>
+												</th:block>
+												<th:block th:unless="${a.status == 'Pending'}">
+													<button class="btn btn-sm btn-success text-white rounded-pill"
+														style="font-size: 13px;"> <i class="fas fa-check-circle"></i>
+														[[${a.status}]]</button>
+												</th:block>
+
+											</td>
+										</tr>
+
+									</tbody>
+
+								</table>
+							</div>
+
+
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- =========== Footer Start ==============  -->
+		<div class="container-fluid text-center text-white myBgColor">
+			<!--<p class="py-2">© 2024 Hospital Management System. All rights reserved.</p>-->
+			<p class="py-2">© 2024 Designed by <span style="font-weight: 600;">Deepak Baij</span>. All rights reserved.
+			</p>
+		</div>
+		<!-- =========== Footer Start ==============  -->
+
+	</section>
+
+
+	<!--  ====== Script Start[Form Validation For Doctor Details] =============== -->
+	<script>
+		function validateForm() {
+			var mobileNumber = document.getElementById("mobileNumber ").value;
+			var email = document.getElementById("email").value;
+
+			document.getElementById("mobileNumberError").textContent = "";
+			document.getElementById("emailError").textContent = "";
+
+			// Regular expression for validating international mobile numbers
+			var mobileNumberRegex = /^(?:\+?\d{1,3}[\s-]?)?(?:\d{3}[\s-]?)?\d{3}[\s-]?\d{4}$/;
+
+			if (!mobileNumberRegex.test(mobileNumber)) {
+				document.getElementById("mobileNumberError").textContent = "Please enter a valid mobile number";
+				return false;
+			}
+
+
+			var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+			if (!emailRegex.test(email)) {
+				document.getElementById("emailError").textContent = "Please enter a valid email address";
+				return false;
+			}
+
+
+			return true;
+		}
+	</script>
+	<!--  ====== Script End[Form Validation for Doctor Details]  ================== -->
+
+
+	<!-- =========== Script Start[For DataTable] =========== -->
+	<script>
+		$(document).ready(function () {
+			$('#viewAppointmentTable').DataTable();
+		});
+	</script>
+	<!-- =========== Script End[For DataTable] ============= -->
+
+
+</body>
+
+</html>

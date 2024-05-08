@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org" th:replace="Base::Layout(~{::title}, ~{::body})">
+<!-- <html lang="en" xmlns:th="https://www.thymeleaf.org" th:replace="~{ Base::Layout(~{::title}, ~{::body}) }"> -->
+
+<head>
+	<meta charset="ISO-8859-1">
+	<title>viewDoctorList</title>
+</head>
+
+<body>
+
+	<section>
+
+		<div class="container-fluid p-3">
+			<div class="row mt-3">
+				
+				<div class="col-md-12 mt-0">
+					<div class="card animated-card shadow p-2 mb-0 bg-body rounded">
+
+						<!-- ======= card-body ========= -->
+						<div class="card-body">
+
+							<p class="text-center fs-4 text-success fst-italic" style="font-weight: 600;">View All Doctor Details</p>
+
+							<th:block th:if="${session.msg}">
+								<p class="text-center text-success fs-5">[[${session.msg}]]</p>
+
+								<!-- ======= But yo mathi ko message(text) lai remove garna yesto garne ========== -->
+								<th:block th:text="${@userServiceImpl.removeSessionMessage()}"></th:block>
+
+							</th:block>
+
+
+							<div class="table-responsive">
+								<table class="table" id="doctorTable">
+
+									<thead>
+										<tr>
+											<th>S.N</th>
+											<th>Full Name</th>
+											<!--<th>Email</th>-->
+											<!--<th>Mobile No.</th>-->
+											<th>Specialist</th>
+											<th>Qualification</th>
+											<th>Experience</th>
+											<!--<th>DOB</th>-->
+											<!--<th>Gender</th>-->
+											<th>Action</th>
+										</tr>
+									</thead>
+
+									<tbody>
+										<tr th:each="d,c:${dList}">
+											<td class="text-center">[[${c.count}]]</td>
+											<td>[[${d.fullName}]]</td>
+											<!--<td>[[${d.user.email}]]</td>-->
+											<!--<td>[[${d.mobileNumber}]]</td>-->
+											<td>[[${d.specialist.specialistName}]]</td>
+											<td>[[${d.qualification}]]</td>
+											<td>[[${d.experienceYear}]] year</td>
+											<!--<td>[[${d.dob}]]</td>-->
+											<!--<td>[[${d.gender}]]</td>-->
+											<td>
+												<a th:href="@{/admin/editDoctor(id=${d.id})}" >
+													<input type="submit" value="Edit" class="btn btn-primary">
+												</a>
+
+												<!-- ====== Modal Baata Delete Garne ====== -->
+												<!-- id lagera jaanu parxa modal ma, soo -->
+
+												<button type="button" class="btn btn-danger" data-bs-toggle="modal"
+													th:data-bs-target="'#deleteDoctorModal-' + ${d.id}">Delete</button>
+
+
+											</td>
+										</tr>
+									</tbody>
+
+								</table>
+							</div>
+
+
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- =========== Footer Start ==============  -->
+		<div class="container-fluid text-center text-white myBgColor">
+			<!--<p class="py-2">© 2024 Hospital Management System. All rights reserved.</p>-->
+			<p class="py-2">© 2024 Designed by <span style="font-weight: 600;">Deepak Baij</span>. All rights reserved.
+			</p>
+		</div>
+		<!-- =========== Footer Start ==============  -->
+
+	</section>
+
+
+	<!-- =========== Modal Start[for Delete] [outside  card(or column where we use th:each loop) modal lekye th:block use garne] =================== -->
+	<th:block th:each="d:${dList}">
+		<div class="modal fade" th:id="'deleteDoctorModal-' + ${d.id}" tabindex="-1" aria-labelledby="exampleModalLabel"
+			aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+				<div class="modal-content bg-light">
+					<div class="modal-header">
+						<h5 class="modal-title text-dark" id="exampleModalLabel">Confirm Deletion</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body text-dark">
+						Are you sure you want to delete this Doctor?
+					</div>
+					<div class="modal-footer border-top-0">
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+
+						<a th:href="@{'/admin/deleteDoctor/' + ${d.id}}">
+							<button type="button" class="btn btn-danger">Delete</button>
+						</a>
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</th:block>
+	<!-- =========== Modal End[for Delete] =================== -->
+
+
+
+	<!-- =========== Script Start[For DataTable] =========== -->
+	<script>
+		$(document).ready(function () {
+			$('#doctorTable').DataTable();
+		});
+	</script>
+	<!-- =========== Script End[For DataTable] ============= -->
+
+</body>
+
+</html>
